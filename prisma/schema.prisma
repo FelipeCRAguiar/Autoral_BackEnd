@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id Int @id @default(autoincrement())
+  username String @unique
+  email String @unique
+  password String
+  awards Awards[]
+  vote Votes[]
+}
+
+model Awards {
+  id Int @id @default(autoincrement())
+  name String
+  image String
+  isPrivate Boolean
+  stage String
+  nominateEndDate DateTime
+  voteEndDate DateTime
+  userId Int
+  user Users @relation(fields: [userId], references: [id])
+  categories Categories[]
+}
+
+model Categories {
+  id Int @id @default(autoincrement())
+  name String
+  awardId Int
+  award Awards @relation(fields: [awardId], references: [id])
+  option Options[]
+}
+
+model Options {
+  id Int @id @default(autoincrement())
+  name String
+  image String
+  categoryId Int
+  category Categories @relation(fields: [categoryId], references: [id])
+  vote Votes[]
+}
+
+model Votes {
+  id Int @id @default(autoincrement())
+  userId Int
+  user Users @relation(fields: [userId], references: [id])
+  optionId Int
+  option Options @relation(fields: [optionId], references: [id])
+}
