@@ -11,8 +11,10 @@ async function getAwards() {
   return awards
 }
 
-async function getAwardById(id: number) {
-  const award = await awardRepository.getAwardById(id)
+async function getAwardById(id: string) {
+  const numberId = parseInt(id)
+
+  const award = await awardRepository.getAwardById(numberId)
 
   if(!award) throw notFoundError("award not found")
 
