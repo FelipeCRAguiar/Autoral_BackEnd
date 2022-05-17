@@ -61,8 +61,9 @@ async function retrievePassword(email: string) {
   if(!user) throw notFoundError("This user does not exist")
 
   const newPassword = faker.random.numeric(8)
+  const newPasswordHash = bcrypt.hashSync(newPassword, 15)
 
-  await userRepository.changePassword(newPassword, email)
+  await userRepository.changePassword(newPasswordHash, email)
 }
 
 export default {

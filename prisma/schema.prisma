@@ -21,7 +21,7 @@ model Users {
 
 model Awards {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   image String
   isPrivate Boolean
   stage String

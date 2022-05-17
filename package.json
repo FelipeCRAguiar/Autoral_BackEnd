@@ -5,7 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.ts",
+    "test": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
+    "migrate:test": "dotenv -e .env.test prisma migrate dev",
+    "dev:test": "dotenv -e .env.test nodemon src/server.ts",
+    "test-coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
   },
   "author": "",
   "license": "ISC",

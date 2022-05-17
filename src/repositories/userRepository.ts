@@ -10,7 +10,7 @@ async function findById(id: number) {
 }
 
 async function createUser(user: CreateUserData) {
-  return prisma.users.create({
+  await prisma.users.create({
     data: user
   })
 }
