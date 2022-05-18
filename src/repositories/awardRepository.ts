@@ -1,5 +1,5 @@
 import { prisma } from "../db.js";
-import { CreateAwardData } from "../services/awardServices.js"
+import { CreateAwardData } from "../services/awardServices.js";
 
 async function getNewAwards() {
   return prisma.awards.findMany({

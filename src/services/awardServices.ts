@@ -1,6 +1,7 @@
 import { Awards } from "@prisma/client";
 import awardRepository from "../repositories/awardRepository";
-import { conflictError, notFoundError } from "../utils/errorUtils";
+import userRepository from "../repositories/userRepository";
+import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils";
 
 
 export type CreateAwardData = Omit<Awards, "id">
@@ -35,7 +36,9 @@ async function getRandomAwards() {
 
 async function createAward(data: CreateAwardData) {
   const award = await awardRepository.getAwardByName(data.name)
+  const user = await userRepository.findById(data.userId)
 
+  if(!user) throw unauthorizedError("Apenas um usuario existente pode criar uma award")
   if(award) throw conflictError("Uma award com esse nome já existe")
 
   await awardRepository.createAward(data)
