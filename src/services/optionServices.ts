@@ -14,7 +14,18 @@ async function getOptionsWithCategoryId(id: string) {
 }
 
 async function createOption(data: CreateOptionData) {
-  const option = await optionRepository.findByCategoryAndUserId(data.categoryId, data.userId)
+  const optionUser = await optionRepository.findByCategoryAndUserId(data.categoryId, data.userId)
 
-  if(option) throw conflictError("Esse usuario já fez uma indicação")
+  if(optionUser) throw conflictError("Esse usuario já fez uma indicação")
+
+  const optionName = await optionRepository.findByNameAndCategoryId(data.name, data.categoryId)
+
+  if (optionName) throw conflictError("Essa opção já foi indicada")
+
+  await optionRepository.createOption(data)
+}
+
+export default {
+  getOptionsWithCategoryId,
+  createOption
 }

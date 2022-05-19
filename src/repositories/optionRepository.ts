@@ -31,10 +31,11 @@ async function findByCategoryAndUserId(categoryId: number, userId: number) {
   })
 }
 
-async function findByName(name: string) {
-  return prisma.options.findUnique({
+async function findByNameAndCategoryId(name: string, categoryId: number) {
+  return prisma.options.findFirst({
     where: {
-      name: name
+      name: name,
+      categoryId: categoryId
     }
   })
 }
@@ -44,5 +45,5 @@ export default {
   createManyOptions,
   createOption,
   findByCategoryAndUserId,
-  findByName
+  findByNameAndCategoryId
 }

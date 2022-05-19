@@ -35,7 +35,7 @@ model Awards {
 
 model Categories {
   id Int @id @default(autoincrement())
-  name String @unique
+  name String
   awardId Int
   award Awards @relation(fields: [awardId], references: [id])
   option Options[]
@@ -43,7 +43,7 @@ model Categories {
 
 model Options {
   id Int @id @default(autoincrement())
-  name String @unique
+  name String
   image String
   categoryId Int
   category Categories @relation(fields: [categoryId], references: [id])
