@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Awards" ALTER COLUMN "nominateEndDate" SET DATA TYPE TEXT,
+ALTER COLUMN "voteEndDate" DROP NOT NULL,
+ALTER COLUMN "voteEndDate" SET DATA TYPE TEXT;

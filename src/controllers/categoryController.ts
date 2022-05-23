@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import categoryServices from "../services/categoryServices";
+import categoryServices from "../services/categoryServices.js";
 
 async function getCategoriesWithAwardId(req: Request, res: Response) {
   const { id } = req.params

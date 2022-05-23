@@ -26,8 +26,8 @@ model Awards {
   image String
   isPrivate Boolean
   stage String
-  nominateEndDate DateTime?
-  voteEndDate DateTime
+  nominateEndDate String?
+  voteEndDate String?
   userId Int
   user Users @relation(fields: [userId], references: [id])
   categories Categories[]

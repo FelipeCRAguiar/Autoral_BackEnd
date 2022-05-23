@@ -6,10 +6,10 @@ import { awardSchema } from "../schemas/awardSchema.js";
 
 const awardRouter = Router()
 
-awardRouter.get("get-all-awards", awardController.getAwards)
-awardRouter.get("get-new-awards", awardController.getNewAwards)
-awardRouter.get("get-random-awards", awardController.getRandomAwards)
-awardRouter.get("get-award/:id", ensureAuthenticatedMiddleware, awardController.getAwardsById)
-awardRouter.post("create-award", validateSchemaMiddleware(awardSchema), awardController.createAwards)
+awardRouter.get("/get-all-awards", awardController.getAwards)
+awardRouter.get("/get-new-awards", awardController.getNewAwards)
+awardRouter.get("/get-random-awards", awardController.getRandomAwards)
+awardRouter.get("/get-award/:id", ensureAuthenticatedMiddleware, awardController.getAwardsById)
+awardRouter.post("/create-award", validateSchemaMiddleware(awardSchema), awardController.createAwards)
 
 export default awardRouter

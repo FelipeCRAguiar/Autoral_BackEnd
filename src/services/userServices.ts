@@ -1,6 +1,6 @@
 import { Users } from "@prisma/client"
 import userRepository from "../repositories/userRepository.js";
-import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils";
+import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";

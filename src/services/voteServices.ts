@@ -1,6 +1,6 @@
-import optionRepository from "../repositories/optionRepository"
-import voteRepository from "../repositories/voteRepository"
-import { conflictError, notFoundError } from "../utils/errorUtils"
+import optionRepository from "../repositories/optionRepository.js";
+import voteRepository from "../repositories/voteRepository.js";
+import { conflictError, notFoundError } from "../utils/errorUtils.js";
 
 
 type VoteBody = {

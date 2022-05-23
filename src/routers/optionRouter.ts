@@ -1,8 +1,8 @@
 import { Router } from "express";
-import optionController from "../controllers/optionController";
-import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware";
-import { ensureAuthenticatedMiddleware } from "../middlewares/validateTokenMiddleware";
-import { optionsSchema } from "../schemas/optionsSchema";
+import optionController from "../controllers/optionController.js";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
+import { ensureAuthenticatedMiddleware } from "../middlewares/validateTokenMiddleware.js";
+import { optionsSchema } from "../schemas/optionsSchema.js";
 
 const optionRouter = Router()
 

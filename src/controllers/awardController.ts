@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import awardServices from "../services/awardServices";
+import awardServices from "../services/awardServices.js";
 
 async function getAwards(req: Request, res: Response) {
   const awards = await awardServices.getAwards()

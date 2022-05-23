@@ -1,7 +1,7 @@
 import { Awards } from "@prisma/client";
-import awardRepository from "../repositories/awardRepository";
-import userRepository from "../repositories/userRepository";
-import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils";
+import awardRepository from "../repositories/awardRepository.js";
+import userRepository from "../repositories/userRepository.js";
+import { conflictError, notFoundError, unauthorizedError } from "../utils/errorUtils.js";
 
 
 export type CreateAwardData = Omit<Awards, "id">

@@ -1,8 +1,8 @@
 import { Router } from "express";
-import voteController from "../controllers/voteController";
-import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware";
-import { ensureAuthenticatedMiddleware } from "../middlewares/validateTokenMiddleware";
-import { voteSchema } from "../schemas/voteSchema";
+import voteController from "../controllers/voteController.js";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
+import { ensureAuthenticatedMiddleware } from "../middlewares/validateTokenMiddleware.js";
+import { voteSchema } from "../schemas/voteSchema.js";
 
 const voteRouter = Router()
 

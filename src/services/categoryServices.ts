@@ -1,8 +1,8 @@
 import { Categories } from "@prisma/client";
-import awardRepository from "../repositories/awardRepository";
-import categoryRepository from "../repositories/categoryRepository";
-import optionRepository from "../repositories/optionRepository";
-import { notFoundError } from "../utils/errorUtils";
+import awardRepository from "../repositories/awardRepository.js";
+import categoryRepository from "../repositories/categoryRepository.js";
+import optionRepository from "../repositories/optionRepository.js";
+import { notFoundError } from "../utils/errorUtils.js";
 
 
 export type CreateCategoryData = Omit<Categories, "id">

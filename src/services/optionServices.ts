@@ -1,6 +1,6 @@
 import { Options } from "@prisma/client";
-import optionRepository from "../repositories/optionRepository";
-import { conflictError } from "../utils/errorUtils";
+import optionRepository from "../repositories/optionRepository.js";
+import { conflictError } from "../utils/errorUtils.js";
 
 
 export type CreateOptionData = Omit<Options, "id">
@@ -14,9 +14,11 @@ async function getOptionsWithCategoryId(id: string) {
 }
 
 async function createOption(data: CreateOptionData) {
-  const optionUser = await optionRepository.findByCategoryAndUserId(data.categoryId, data.userId)
-
-  if(optionUser) throw conflictError("Esse usuario já fez uma indicação")
+  if(data.userId) {
+    const optionUser = await optionRepository.findByCategoryAndUserId(data.categoryId, data.userId)
+  
+    if(optionUser) throw conflictError("Esse usuario já fez uma indicação")
+  }
 
   const optionName = await optionRepository.findByNameAndCategoryId(data.name, data.categoryId)
 

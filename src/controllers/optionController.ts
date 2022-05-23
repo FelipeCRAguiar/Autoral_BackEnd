@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import optionServices from "../services/optionServices";
+import optionServices from "../services/optionServices.js";
 
 async function getOptionsWithCategoryId(req: Request, res: Response) {
   const { id } = req.params
